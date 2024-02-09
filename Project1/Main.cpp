@@ -1,7 +1,24 @@
 #include "logger.h"
 #include "headers.h"
+#include <fstream>
+#include <sstream>
 
 Log logger;
+
+
+std::string readShaderFile(const std::string& filepath)
+{
+
+	std::ifstream stream(filepath);
+	std::stringstream ss[1];
+	std::string line;
+	while (getline(stream, line))
+	{
+		ss[0] << line << "\n";
+	}
+	return ss[0].str();
+
+}
 
 
 static unsigned int CompileShader(unsigned int typeOfShader,const std::string& source)
@@ -100,25 +117,8 @@ int main()
 
   glEnableVertexAttribArray(0);
   glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float),NULL);
-
-
-  // write the shaders and apply them
-  std::string vertexShader =
-	  "#version 450 core\n"
-	  "layout(location = 0) in vec4 position;\n"
-	  "void main()\n"
-	  "{\n"
-	  "	gl_Position = position;\n"
-	  "}\n";
-
-  std::string fragmentShader =
-	  "#version 450 core\n"
-	  "layout(location = 0) out vec4 color;\n"
-	  "void main()\n"
-	  "{\n"
-	  "	color = vec4(0.5,0.2,0.8,1.0);\n"
-	  "}\n";
-
+  auto vertexShader = readShaderFile("res/shaders/basicVertex.shader");
+  auto fragmentShader = readShaderFile("res/shaders/basicFragment.shader");
   auto shader = CreateShader(vertexShader, fragmentShader);
   glUseProgram(shader);
 

@@ -23,9 +23,6 @@
     <ClInclude Include="logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vec2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers.h">
       <Filter>Header Files</Filter>
     </ClInclude>

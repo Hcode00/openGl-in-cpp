@@ -63,6 +63,33 @@ public:
 		}
 
 	}
+	void Error(const unsigned char* Message) const
+	{
+		m_no_errors++;
+		if (p_level >= LevelError)
+		{
+			std::cout << "\033[31m[Error]: " << Message << "\033[0m" << std::endl;
+		}
+
+	}
+	void Warn(const unsigned char* Message) const
+	{
+		m_no_warnings++;
+		if (p_level >= LevelWarning)
+		{
+			std::cout << "\033[33m[WARNING]: " << Message << "\033[0m" << std::endl;
+		}
+	}
+	void Info(const unsigned char* Message) const
+	{
+		m_no_infos++;
+		if (p_level == LevelInfo)
+		{
+			std::cout << "\033[36m[INFO]: " << Message << "\033[0m" << std::endl;
+		}
+
+	}
+
 	void Error(std::string Message, std::string Message2) const
 	{
 		m_no_errors++;

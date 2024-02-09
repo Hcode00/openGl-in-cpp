@@ -1,5 +1,5 @@
 #include "headers.h"
-Log shadersLogger;
+static Log shadersLogger;
 
 unsigned int CompileShader(unsigned int typeOfShader, const std::string& source)
 {

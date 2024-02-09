@@ -7,8 +7,6 @@
 #pragma once
 #include "logger.h"
 
-// global logger for all files
-
 
 // FileHandler file definitions
 std::string readShaderFile(const std::string& filepath);

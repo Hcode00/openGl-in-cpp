@@ -1,21 +1,19 @@
 #include "headers.h"
 
-
 const  int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
-
-Log logger;
 
 
 
 int main()
 {
+	Log mainLogger;
 
 	GLFWwindow* window;
 	/* Initialize the library */
 	if (!glfwInit())
 	{
-		logger.Error("Error Initializing GLFW!");
+		mainLogger.Error("Error Initializing GLFW!");
 		return -1;
 	}
 
@@ -23,7 +21,7 @@ int main()
 	window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "HCode", NULL, NULL);
 	if (!window)
 	{
-		logger.Error("Error Initializing GLFW Window!");
+		mainLogger.Error("Error Initializing GLFW Window!");
 		glfwTerminate();
 		return -1;
 	}
@@ -34,10 +32,10 @@ int main()
 	auto err = glewInit();
 	if (GLEW_OK != err)
 	{
-		logger.Error("Error Initializing GLEW!");
+		mainLogger.Error("Error Initializing GLEW!");
 		return -1;
 	}
-	logger.Info("Status: Using OpenGL " , glGetString(GL_VERSION));
+	mainLogger.Info("Status: Using OpenGL " , glGetString(GL_VERSION));
 
 	float positions[6] = {
 		-0.5f,-0.5f,
@@ -74,9 +72,9 @@ int main()
 	}
 
   glDeleteShader(shader);
-	logger.Warn("A call for session termination!");
+	mainLogger.Warn("A call for session termination!");
 	glfwTerminate();
-	logger.Warn("Session terminated!");
+	mainLogger.Warn("Session terminated!");
 
 }
 

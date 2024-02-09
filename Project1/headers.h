@@ -5,4 +5,15 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #pragma once
-#include <string>
+#include "logger.h"
+
+// global logger for all files
+
+
+// FileHandler file definitions
+std::string readShaderFile(const std::string& filepath);
+
+// shadersHandler file definitions
+unsigned int CompileShader(unsigned int typeOfShader, const std::string& source);
+
+unsigned int CreateShader(const std::string& vertexShader, std::string& fragmentShader);

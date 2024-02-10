@@ -15,3 +15,8 @@ std::string readShaderFile(const std::string& filepath);
 unsigned int CompileShader(unsigned int typeOfShader, const std::string& source);
 
 unsigned int CreateShader(const std::string& vertexShader, std::string& fragmentShader);
+
+// glDebug file definitions
+void GLClearErrors();
+
+bool GLLogCall( const char* function, const char* file, int line);

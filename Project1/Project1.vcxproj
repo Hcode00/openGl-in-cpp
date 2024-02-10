@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileHandler.cpp" />
+    <ClCompile Include="glDebug.cpp" />
     <ClCompile Include="shadersHandler.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
